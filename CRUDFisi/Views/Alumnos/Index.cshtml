@@ -1,0 +1,37 @@
+﻿@model List<CRUDFisi.Models.ViewModels.ListAlumnosViewModel>
+@{
+    ViewBag.Title = "Datos del alumno";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Alumnos/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Código</th>
+            </tr>
+            @foreach (var elemento in Model)
+            {
+                <tr>
+                    <td>@elemento.Id</td>
+                    <td>@elemento.Nombre</td>
+                    <td>@elemento.Apellido</td>
+                    <td>@elemento.Codigo</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Alumnos/Editar/@elemento.Id">Editar</a>
+                        <a class="btn btn-danger" href="~/Alumnos/Eliminar/@elemento.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
